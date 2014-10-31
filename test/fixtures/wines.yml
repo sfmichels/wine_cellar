@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  winery: MyString
+  variety: MyString
+  year: 1
+  appellation: MyString
+  vineyard: MyString
+  winemaker: MyString
+  alcohol_content: MyString
+  color: MyString
+  sparkling: false
+  bottle_size: MyString
+  country: MyString
+  maturity: 1
+  drink_by: 1
+
+two:
+  winery: MyString
+  variety: MyString
+  year: 1
+  appellation: MyString
+  vineyard: MyString
+  winemaker: MyString
+  alcohol_content: MyString
+  color: MyString
+  sparkling: false
+  bottle_size: MyString
+  country: MyString
+  maturity: 1
+  drink_by: 1
