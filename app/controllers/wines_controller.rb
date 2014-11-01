@@ -13,6 +13,10 @@ class WinesController < ApplicationController
     @wine = Wine.find(params[:id])
   end
 
+  def index
+    @wines = Wine.all
+  end
+
   private
     def wine_params
       params.require(:wine).permit(:winery, :variety, :color, :year, :appellation, :vineyard, :winemaker,

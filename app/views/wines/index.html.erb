@@ -1,0 +1,13 @@
+<h1>Listing wines</h1>
+
+<table>
+  <% @wines.each do |wine| %>
+    <tr>
+      <td><%= wine.winery %></td>
+      <td><%= wine.variety %></td>
+      <td><%= wine.year %></td>
+      <td><%= wine.appellation %></td>
+      <td><%= wine.vineyard %></td>
+    </tr>
+  <% end %>
+</table>
