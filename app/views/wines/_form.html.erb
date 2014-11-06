@@ -1,0 +1,26 @@
+<%= form_for @wine do |f| %>
+
+    <table>
+      <col align="right">
+      <col align="left">
+
+      <tr><td align="right"><%= f.label :winery %>:</td><td><%= f.text_field :winery %></td></tr>
+      <tr><td align="right"><%= f.label :variety %>:</td><td><%= f.text_field :variety %></td></tr>
+      <tr><td align="right"><%= f.label :year %>:</td><td><%= f.text_field :year %></td></tr>
+      <tr><td align="right"><%= f.label :appellation %>:</td><td><%= f.text_field :appellation %></td></tr>
+      <tr><td align="right"><%= f.label :vineyard %>:</td><td><%= f.text_field :vineyard %></td></tr>
+      <tr><td align="right"><%= f.label :winemaker %>:</td><td><%= f.text_field :winemaker %></td></tr>
+      <tr><td align="right"><%= f.label :alcohol_content %>:</td><td><%= f.text_field :alcohol_content %></td></tr>
+      <tr><td align="right"><%= f.label :color %>:</td><td><%= f.text_field :color %></td></tr>
+      <tr><td align="right"><%= f.label :sparkling %>:</td><td><%= f.text_field :sparkling %></td></tr>
+      <tr><td align="right"><%= f.label :bottle_size %>:</td><td><%= f.text_field :bottle_size %></td></tr>
+      <tr><td align="right"><%= f.label :country %>:</td><td><%= f.text_field :country %></td></tr>
+      <tr><td align="right"><%= f.label :maturity %>:</td><td><%= f.text_field :maturity %></td></tr>
+      <tr><td align="right"><%= f.label :drink_by %>:</td><td><%= f.text_field :drink_by %></td></tr>
+    </table>
+
+    <p>
+      <%= f.submit %>
+    </p>
+
+<% end %>

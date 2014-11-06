@@ -1,12 +1,16 @@
 class WinesController < ApplicationController
   def new
+    @wine = Wine.new
   end
 
   def create
     @wine = Wine.new(wine_params)
 
-    @wine.save
-    redirect_to @wine
+    if @wine.save
+      redirect_to @wine
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -15,6 +19,27 @@ class WinesController < ApplicationController
 
   def index
     @wines = Wine.all
+  end
+
+  def update
+    @wine = Wine.find(params[:id])
+
+    if @wine.update(wine_params)
+      redirect_to @wine
+    else
+      render 'edit'
+    end
+  end
+
+  def edit
+    @wine = Wine.find(params[:id])
+  end
+
+  def destroy
+    @wine = Wine.find(params[:id])
+    @wine.destroy
+
+    redirect_to wines_path
   end
 
   private
