@@ -10,7 +10,7 @@
   <tr><td>Winemaker:</td><td><%= @wine.winemaker %></td></tr>
   <tr><td>Alcohol:</td><td><%= @wine.color %></td></tr>
   <tr><td>Color:</td><td><%= @wine.vineyard %></td></tr>
-  <tr><td>Sparkling:</td><td><%= @wine.sparkling %></td></tr>
+  <tr><td>Sparkling:</td><td><%= @wine.sparkling ? "\u2713" : " " %></td></tr>
   <tr><td>Bottle Size:</td><td><%= @wine.bottle_size %></td></tr>
   <tr><td>Country:</td><td><%= @wine.country %></td></tr>
   <tr><td>Maturity:</td><td><%= @wine.maturity %></td></tr>
