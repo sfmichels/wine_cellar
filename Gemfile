@@ -4,7 +4,7 @@ ruby '2.1.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
 # use bootstrap with SASS
-#gem 'bootstrap-sass'
+gem 'bootstrap-sass'
 #gem 'autoprefixer-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
