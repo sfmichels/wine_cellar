@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  purchased_from: MyString
+  purchase_price: 9.99
+  purchase_date: 2014-11-22
+  location: MyString
+  consumed_date: 2014-11-22
+  wine_id: 
+
+two:
+  purchased_from: MyString
+  purchase_price: 9.99
+  purchase_date: 2014-11-22
+  location: MyString
+  consumed_date: 2014-11-22
+  wine_id: 

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :wines
+  resources :wines do
+    resources :bottles
+  end
 
   get 'welcome/index'
 

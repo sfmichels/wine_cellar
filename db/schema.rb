@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141031003651) do
+ActiveRecord::Schema.define(version: 20141123041125) do
+
+  create_table "bottles", force: true do |t|
+    t.string   "purchased_from"
+    t.decimal  "purchase_price", precision: 9, scale: 2
+    t.date     "purchase_date"
+    t.string   "location"
+    t.date     "consumed_date"
+    t.integer  "wine_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bottles", ["wine_id"], name: "index_bottles_on_wine_id"
 
   create_table "wines", force: true do |t|
     t.string   "winery"
