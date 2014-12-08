@@ -1,110 +1,108 @@
 <% provide(:title, "Show Wine") %>
 
-<table>
-  <col align="right">
-  <col align="left">
+<div class="wine-form">
+  <table>
+
   <tr>
-    <td align="right"><strong>Winery</strong>:</td>
+    <td>Winery:</td>
     <td><%= @wine.winery %></td>
   </tr>
   <tr>
-    <td align="right">Variety:</td>
+    <td>Variety:</td>
     <td><%= @wine.variety %></td>
   </tr>
   <tr>
-    <td align="right">Year:</td>
+    <td>Year:</td>
     <td><%= @wine.year %></td>
   </tr>
   <tr>
-    <td align="right">Appellation:</td>
+    <td>Appellation:</td>
     <td><%= @wine.appellation %></td>
   </tr>
   <tr>
-    <td align="right">Vineyard:</td>
+    <td>Vineyard:</td>
     <td><%= @wine.vineyard %></td>
   </tr>
   <tr>
-    <td align="right">Winemaker:</td>
+    <td>Winemaker:</td>
     <td><%= @wine.winemaker %></td>
   </tr>
   <tr>
-    <td align="right">Alcohol:</td>
+    <td>Alcohol:</td>
     <td><%= @wine.alcohol_content %></td>
   </tr>
   <tr>
-    <td align="right">Color:</td>
+    <td>Color:</td>
     <td><%= @wine.color %></td>
   </tr>
   <tr>
-    <td align="right">Sparkling:</td>
+    <td>Sparkling:</td>
     <td><%= check_box_tag("wine", "sparkling") %></td>
   </tr>
   <tr>
-    <td align="right">Bottle Size:</td>
+    <td>Bottle Size:</td>
     <td><%= @wine.bottle_size %></td>
   </tr>
   <tr>
-    <td align="right">Country:</td>
+    <td>Country:</td>
     <td><%= @wine.country %></td>
   </tr>
   <tr>
-    <td align="right">Maturity:</td>
+    <td>Maturity:</td>
     <td><%= @wine.maturity %></td>
   </tr>
   <tr>
-    <td align="right">Drink By:</td>
+    <td>Drink By:</td>
     <td><%= @wine.drink_by %></td>
   </tr>
 </table>
+</div>
 
 <h4>Bottles</h4>
-<table>
-  <thead>
-  <tr>
-    <td>Purchased From</td>
-    <td>Price</td>
-    <td>Date</td>
-    <td>Location</td>
-    <td>Consumed</td>
-  </tr>
-  </thead>
-  <% @wine.bottles.each do |bottle| %>
-      <tr>
-        <td><%= bottle.purchased_from %></td>
-        <td><%= number_to_currency(bottle.purchase_price, precision: 2) %></td>
-        <td><%= bottle.purchase_date %></td>
-        <td><%= bottle.location %></td>
-        <td><%= bottle.consumed_date %></td>
-      </tr>
-  <% end %>
-</table>
+<div class="show-bottles">
+  <table>
+    <thead>
+    <tr>
+      <td>Purchased From</td>
+      <td>Price</td>
+      <td>Date</td>
+      <td>Location</td>
+      <td>Consumed</td>
+    </tr>
+    </thead>
+
+    <% @wine.bottles.each do |bottle| %>
+        <tbody>
+        <tr>
+          <td><%= bottle.purchased_from %></td>
+          <td><%= number_to_currency(bottle.purchase_price, precision: 2) %></td>
+          <td><%= bottle.purchase_date %></td>
+          <td><%= bottle.location %></td>
+          <td><%= bottle.consumed_date %></td>
+        </tr>
+        </tbody>
+    <% end %>
+  </table>
 
 <h4>Add a bottle:</h4>
 
 <%= form_for ([@wine, @wine.bottles.build]) do |f| %>
     <table>
-      <col align="right">
-      <col align="left">
+       <thead>
+        <td align="center"><%= f.label :purchased_from, 'Purchased From' %></td>
+        <td align="center"><%= f.label :price %></td>
+        <td align="center"><%= f.label :purchased %></td>
+        <td align="center"><%= f.label :location %></td>
+        <td align="center"><%= f.label :consumed %></td>
+      </thead>
 
       <tr>
-        <td align="right"><%= f.label :purchased_from %>:</td>
         <td><%= f.text_field :purchased_from %></td>
-      </tr>
-      <tr>
-        <td align="right"><%= f.label :purchase_price %>:</td>
-        <td><%= f.number_field :purchase_price, :class => 'text_field', :step => 0.01 %></td>
-      </tr>
-      <tr>
-        <td align="right"><%= f.label :purchase_date %>:</td>
-        <td><%= f.date_field :purchase_date %></td>
-      </tr>
-      <tr>
-        <td align="right"><%= f.label :location %>:</td>
+        <td><%= f.number_field :purchase_price, :class => 'text_field', :step => 0.01,
+                               :precision => number_with_precision(:purchase_price, :precision => 2), :width => 9 %></td>
+        <td><%= f.date_field :purchase_date, options = {style:"height: 26px"} %></td>
         <td><%= f.text_field :location %></td>
-      </tr>
-      <tr>
-        <td align="right"><%= f.label :consumed_date %>:</td>
-        <td><%= f.date_field :consumed_date %></td>
+        <td><%= f.date_field :consumed_date, options = {style:"height: 26px"} %></td>
       </tr>
     </table>
     <p>
@@ -113,33 +111,7 @@
 <% end %>
 
 
-<% if false %>
-    <%= form_for([@wine, @wine.bottles.build]) do |f| %>
-        <p>
-          <%= f.label :purchased_from %><br>
-          <%= f.text_field :purchased_from %>
-        </p>
-        <p>
-          <%= f.label :purchase_price %><br>
-          <%= f.number_field :purchase_price, :class => 'text_field', :step => 0.01 %>
-        </p>
-        <p>
-          <%= f.label :purchase_date %><br>
-          <%= f.date_field :purchase_date %>
-        </p>
-        <p>
-          <%= f.label :location %><br>
-          <%= f.text_field :location %>
-        </p>
-        <p>
-          <%= f.label :consumed_date %><br>
-          <%= f.date_field :consumed_date %>
-        </p>
-        <p>
-          <%= f.submit %>
-        </p>
-    <% end %>
-<% end %>
+
 
 <%= link_to 'All Wines', wines_path %>
 | <%= link_to 'Edit', edit_wine_path(@wine) %>
