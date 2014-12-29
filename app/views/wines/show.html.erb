@@ -98,8 +98,8 @@
 
       <tr>
         <td><%= f.text_field :purchased_from %></td>
-        <td><%= f.number_field :purchase_price, :class => 'text_field', :step => 0.01,
-                               :precision => number_with_precision(:purchase_price, :precision => 2), :width => 9 %></td>
+        <td><%= f.number_field :purchase_price, :size => "9", :maxlength => "9", :step => 0.01, :max => 99999.99,
+                               :precision => number_with_precision(:purchase_price, :precision => 2) %></td>
         <td><%= f.date_field :purchase_date, options = {style:"height: 26px"} %></td>
         <td><%= f.text_field :location %></td>
         <td><%= f.date_field :consumed_date, options = {style:"height: 26px"} %></td>
