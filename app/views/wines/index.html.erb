@@ -1,20 +1,95 @@
 <% provide(:title, "Show All Wines") %>
 <h1>Wines</h1>
 
-<table>
+
+<div class="table-responsive">
+  <table class="table  table-condensed table-striped">
+    <thead>
+    <tr>
+      <th>Winery</th>
+      <th>Variety</th>
+      <th>Year</th>
+      <th>Appellation</th>
+      <th>Vineyard</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @wines.each do |wine| %>
+        <tr>
+          <td><%= wine.winery %></td>
+          <td><%= wine.variety %></td>
+          <td><%= wine.year %></td>
+          <td><%= wine.appellation %></td>
+          <td><%= wine.vineyard %></td>
+          <td><%= link_to 'Show', wine_path(wine) %></td>
+          <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
+          <td>
+            <%= link_to 'Delete', wine_path(wine),
+                        method: :delete, data: {confirm: 'Are you sure?'} %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<br/>
+<br/>
+<br/>
+
+
+
+  <div class="row">
+    <strong>
+      <div class="col-sm-2 col-md-2">Winery</div>
+      <div class="col-sm-2 col-md-2">Variety</div>
+      <div class="col-sm-1 col-md-1">Year</div>
+      <div class="col-sm-2 col-md-2">Appellation</div>
+      <div class="col-sm-2 col-md-2">Vineyard</div>
+    </strong>
+  </div>
   <% @wines.each do |wine| %>
-      <tr>
-        <td><%= wine.winery %></td>
-        <td><%= wine.variety %></td>
-        <td><%= wine.year %></td>
-        <td><%= wine.appellation %></td>
-        <td><%= wine.vineyard %></td>
-        <td><%= link_to 'Show', wine_path(wine) %></td>
-        <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
-        <td><%= link_to 'Delete', wine_path(wine),
-                        method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="row">
+        <div class="col-sm-2 col-md-2"><%= wine.winery %></div>
+        <div class="col-sm-2 col-md-2"><%= wine.variety %></div>
+        <div class="col-sm-1 col-md-1"><%= wine.year %></div>
+        <div class="col-sm-2 col-md-2"><%= wine.appellation %></div>
+        <div class="col-sm-1 col-md-2"><%= wine.vineyard %></div>
+        <div class="col-sm-1 col-sm-1"><%= link_to 'Show', wine_path(wine) %></div>
+        <div class="col-sm-1 col-sm-1"><%= link_to 'Edit', edit_wine_path(wine) %></div>
+        <div class="col-sm-1 col-sm-1"><%= link_to 'Delete', wine_path(wine),
+                                                   method: :delete, data: {confirm: 'Are you sure?'} %></div>
+      </div>
   <% end %>
-</table>
+</div>
+<br/>
+<br/>
+<br/>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <strong>
+      <div class="col-sm-2 col-md-2">Winery</div>
+      <div class="col-sm-2 col-md-2">Variety</div>
+      <div class="col-sm-1 col-md-1">Year</div>
+      <div class="col-sm-2 col-md-2">Appellation</div>
+      <div class="col-sm-2 col-md-2">Vineyard</div>
+    </strong>
+  </div>
+  <% @wines.each do |wine| %>
+      <div class="row">
+        <div class="col-sm-2 col-md-2"><%= wine.winery %></div>
+        <div class="col-sm-2 col-md-2"><%= wine.variety %></div>
+        <div class="col-sm-1 col-md-1"><%= wine.year %></div>
+        <div class="col-sm-2 col-md-2"><%= wine.appellation %></div>
+        <div class="col-sm-1 col-md-2"><%= wine.vineyard %></div>
+        <div class="col-sm-1 col-sm-1"><%= link_to 'Show', wine_path(wine) %></div>
+        <div class="col-sm-1 col-sm-1"><%= link_to 'Edit', edit_wine_path(wine) %></div>
+        <div class="col-sm-1 col-sm-1"><%= link_to 'Delete', wine_path(wine),
+                                                   method: :delete, data: {confirm: 'Are you sure?'} %></div>
+      </div>
+  <% end %>
+</div>
+
 
 <%= link_to 'New Wine', new_wine_path %>
