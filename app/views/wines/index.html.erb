@@ -35,63 +35,9 @@
     </tbody>
   </table>
 </div>
-<br/>
-<br/>
-<br/>
 
+<%= link_to new_wine_path, class: 'btn btn-primary' do %>
+    New Wine
+    <span class="glyphicon glyphicon-glass"></span>
+<% end %>
 
-
-  <div class="row">
-    <strong>
-      <div class="col-sm-2 col-md-2">Winery</div>
-      <div class="col-sm-2 col-md-2">Variety</div>
-      <div class="col-sm-1 col-md-1">Year</div>
-      <div class="col-sm-2 col-md-2">Appellation</div>
-      <div class="col-sm-2 col-md-2">Vineyard</div>
-    </strong>
-  </div>
-  <% @wines.each do |wine| %>
-      <div class="row">
-        <div class="col-sm-2 col-md-2"><%= wine.winery %></div>
-        <div class="col-sm-2 col-md-2"><%= wine.variety %></div>
-        <div class="col-sm-1 col-md-1"><%= wine.year %></div>
-        <div class="col-sm-2 col-md-2"><%= wine.appellation %></div>
-        <div class="col-sm-1 col-md-2"><%= wine.vineyard %></div>
-        <div class="col-sm-1 col-sm-1"><%= link_to 'Show', wine_path(wine) %></div>
-        <div class="col-sm-1 col-sm-1"><%= link_to 'Edit', edit_wine_path(wine) %></div>
-        <div class="col-sm-1 col-sm-1"><%= link_to 'Delete', wine_path(wine),
-                                                   method: :delete, data: {confirm: 'Are you sure?'} %></div>
-      </div>
-  <% end %>
-</div>
-<br/>
-<br/>
-<br/>
-
-
-<div class="container-fluid">
-  <div class="row">
-    <strong>
-      <div class="col-sm-2 col-md-2">Winery</div>
-      <div class="col-sm-2 col-md-2">Variety</div>
-      <div class="col-sm-1 col-md-1">Year</div>
-      <div class="col-sm-2 col-md-2">Appellation</div>
-      <div class="col-sm-2 col-md-2">Vineyard</div>
-    </strong>
-  </div>
-  <% @wines.each do |wine| %>
-      <div class="row">
-        <div class="col-sm-2 col-md-2"><%= wine.winery %></div>
-        <div class="col-sm-2 col-md-2"><%= wine.variety %></div>
-        <div class="col-sm-1 col-md-1"><%= wine.year %></div>
-        <div class="col-sm-2 col-md-2"><%= wine.appellation %></div>
-        <div class="col-sm-1 col-md-2"><%= wine.vineyard %></div>
-        <div class="col-sm-1 col-sm-1"><%= link_to 'Show', wine_path(wine) %></div>
-        <div class="col-sm-1 col-sm-1"><%= link_to 'Edit', edit_wine_path(wine) %></div>
-        <div class="col-sm-1 col-sm-1"><%= link_to 'Delete', wine_path(wine),
-                                                   method: :delete, data: {confirm: 'Are you sure?'} %></div>
-      </div>
-  <% end %>
-</div>
-
-<%= link_to 'New Wine', new_wine_path %>
