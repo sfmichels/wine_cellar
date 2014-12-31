@@ -3,59 +3,59 @@
 <div class="wine-form">
   <table>
 
-  <tr>
-    <td>Winery:</td>
-    <td><%= @wine.winery %></td>
-  </tr>
-  <tr>
-    <td>Variety:</td>
-    <td><%= @wine.variety %></td>
-  </tr>
-  <tr>
-    <td>Year:</td>
-    <td><%= @wine.year %></td>
-  </tr>
-  <tr>
-    <td>Appellation:</td>
-    <td><%= @wine.appellation %></td>
-  </tr>
-  <tr>
-    <td>Vineyard:</td>
-    <td><%= @wine.vineyard %></td>
-  </tr>
-  <tr>
-    <td>Winemaker:</td>
-    <td><%= @wine.winemaker %></td>
-  </tr>
-  <tr>
-    <td>Alcohol:</td>
-    <td><%= @wine.alcohol_content %></td>
-  </tr>
-  <tr>
-    <td>Color:</td>
-    <td><%= @wine.color %></td>
-  </tr>
-  <tr>
-    <td>Sparkling:</td>
-    <td><%= check_box_tag("wine", "sparkling") %></td>
-  </tr>
-  <tr>
-    <td>Bottle Size:</td>
-    <td><%= @wine.bottle_size %></td>
-  </tr>
-  <tr>
-    <td>Country:</td>
-    <td><%= @wine.country %></td>
-  </tr>
-  <tr>
-    <td>Maturity:</td>
-    <td><%= @wine.maturity %></td>
-  </tr>
-  <tr>
-    <td>Drink By:</td>
-    <td><%= @wine.drink_by %></td>
-  </tr>
-</table>
+    <tr>
+      <td>Winery:</td>
+      <td><%= @wine.winery %></td>
+    </tr>
+    <tr>
+      <td>Variety:</td>
+      <td><%= @wine.variety %></td>
+    </tr>
+    <tr>
+      <td>Year:</td>
+      <td><%= @wine.year %></td>
+    </tr>
+    <tr>
+      <td>Appellation:</td>
+      <td><%= @wine.appellation %></td>
+    </tr>
+    <tr>
+      <td>Vineyard:</td>
+      <td><%= @wine.vineyard %></td>
+    </tr>
+    <tr>
+      <td>Winemaker:</td>
+      <td><%= @wine.winemaker %></td>
+    </tr>
+    <tr>
+      <td>Alcohol:</td>
+      <td><%= @wine.alcohol_content %></td>
+    </tr>
+    <tr>
+      <td>Color:</td>
+      <td><%= @wine.color %></td>
+    </tr>
+    <tr>
+      <td>Sparkling:</td>
+      <td><%= check_box_tag("wine", "sparkling") %></td>
+    </tr>
+    <tr>
+      <td>Bottle Size:</td>
+      <td><%= @wine.bottle_size %></td>
+    </tr>
+    <tr>
+      <td>Country:</td>
+      <td><%= @wine.country %></td>
+    </tr>
+    <tr>
+      <td>Maturity:</td>
+      <td><%= @wine.maturity %></td>
+    </tr>
+    <tr>
+      <td>Drink By:</td>
+      <td><%= @wine.drink_by %></td>
+    </tr>
+  </table>
 </div>
 
 <h4>Bottles</h4>
@@ -84,34 +84,41 @@
     <% end %>
   </table>
 
-<h4>Add a bottle:</h4>
+  <h4>Add a bottle:</h4>
 
-<%= form_for ([@wine, @wine.bottles.build]) do |f| %>
-    <table>
-       <thead>
+  <%= form_for ([@wine, @wine.bottles.build]) do |f| %>
+      <table>
+        <thead>
         <td align="center"><%= f.label :purchased_from, 'Purchased From' %></td>
         <td align="center"><%= f.label :price %></td>
         <td align="center"><%= f.label :purchased %></td>
         <td align="center"><%= f.label :location %></td>
         <td align="center"><%= f.label :consumed %></td>
-      </thead>
+        </thead>
 
-      <tr>
-        <td><%= f.text_field :purchased_from %></td>
-        <td><%= f.number_field :purchase_price, :size => "9", :maxlength => "9", :step => 0.01, :max => 99999.99,
-                               :precision => number_with_precision(:purchase_price, :precision => 2) %></td>
-        <td><%= f.date_field :purchase_date, options = {style:"height: 26px"} %></td>
-        <td><%= f.text_field :location %></td>
-        <td><%= f.date_field :consumed_date, options = {style:"height: 26px"} %></td>
-      </tr>
-    </table>
-    <p>
-      <%= f.submit %>
-    </p>
-<% end %>
+        <tr>
+          <td><%= f.text_field :purchased_from %></td>
+          <td><%= f.number_field :purchase_price, :size => "9", :maxlength => "9", :step => 0.01, :max => 99999.99,
+                                 :precision => number_with_precision(:purchase_price, :precision => 2) %></td>
+          <td><%= f.date_field :purchase_date, options = {style: "height: 26px"} %></td>
+          <td><%= f.text_field :location %></td>
+          <td><%= f.date_field :consumed_date, options = {style: "height: 26px"} %></td>
+        </tr>
+      </table>
+      <p>
+        <%= f.submit %>
+      </p>
+  <% end %>
 
+  <%= link_to edit_wine_path, class: 'btn btn-primary' do %>
+      Edit Wine
+      <span class="glyphicon glyphicon-glass"></span>
+  <% end %>
 
+  <%= link_to wines_path, class: 'btn btn-primary' do %>
+      All Wines
+      <span class="glyphicon glyphicon-glass"></span>
+  <% end %>
 
+</div>
 
-<%= link_to 'All Wines', wines_path %>
-| <%= link_to 'Edit', edit_wine_path(@wine) %>
