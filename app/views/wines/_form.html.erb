@@ -1,132 +1,128 @@
-<div class="container-fluid">
+<%= form_for @wine do |f| %>
 
-  <%= form_for @wine do |f| %>
-
-      <div class="row">
-        <div class="form-horizontal">
-          <%= f.label :winery, class: "col-md-2 control-label" %>
-          <div class="col-md-10">
-            <%= f.text_field :winery, class: "form-control", placeholder: "Winery" %>
-          </div>
+    <div class="row">
+      <div class="form-horizontal">
+        <%= f.label :winery, class: "col-md-1 control-label" %>
+        <div class="col-md-11">
+          <%= f.text_field :winery, class: "form-control", placeholder: "Winery" %>
         </div>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="form-horizontal">
-          <%= f.label :variety, class: "col-md-2 control-label" %>
-          <div class="col-md-10">
-            <%= f.text_field :variety, class: "form-control", placeholder: "Variety" %>
-          </div>
+    <div class="row">
+      <div class="form-horizontal">
+        <%= f.label :variety, class: "col-md-1 control-label" %>
+        <div class="col-md-11">
+          <%= f.text_field :variety, class: "form-control", placeholder: "Variety" %>
         </div>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="form-horizontal">
-          <%= f.label :year, class: "col-md-2 control-label" %>
-          <div class="col-md-10">
-            <%= f.text_field :year, class: "form-control", placeholder: "Year" %>
-          </div>
+    <div class="row">
+      <div class="form-horizontal">
+        <%= f.label :year, class: "col-md-1 control-label" %>
+        <div class="col-md-11">
+          <%= f.text_field :year, class: "form-control", placeholder: "Year" %>
         </div>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="form-horizontal">
-          <%= f.label :appellation, class: "col-md-2 control-label" %>
-          <div class="col-md-10">
-            <%= f.text_field :appellation, class: "form-control", placeholder: "Appellation" %>
-          </div>
+    <div class="row">
+      <div class="form-horizontal">
+        <%= f.label :appellation, class: "col-md-1 control-label" %>
+        <div class="col-md-11">
+          <%= f.text_field :appellation, class: "form-control", placeholder: "Appellation" %>
         </div>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="form-horizontal">
-          <%= f.label :vineyard, class: "col-md-2 control-label" %>
-          <div class="col-md-10">
-            <%= f.text_field :vineyard, class: "form-control", placeholder: "Vineyard" %>
-          </div>
+    <div class="row">
+      <div class="form-horizontal">
+        <%= f.label :vineyard, class: "col-md-1 control-label" %>
+        <div class="col-md-11">
+          <%= f.text_field :vineyard, class: "form-control", placeholder: "Vineyard" %>
         </div>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="form-horizontal">
-          <%= f.label :winemaker, class: "col-md-2 control-label" %>
-          <div class="col-md-10">
-            <%= f.text_field :winemaker, class: "form-control", placeholder: "Winemaker" %>
-          </div>
+    <div class="row">
+      <div class="form-horizontal">
+        <%= f.label :winemaker, class: "col-md-1 control-label" %>
+        <div class="col-md-11">
+          <%= f.text_field :winemaker, class: "form-control", placeholder: "Winemaker" %>
         </div>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="form-horizontal">
-          <%= f.label :alcohol_Content, class: "col-md-2 control-label" %>
-          <div class="col-md-10">
-            <%= f.text_field :alcohol_content, class: "form-control", placeholder: "Alcohol Content" %>
-          </div>
+    <div class="row">
+      <div class="form-horizontal">
+        <%= f.label "Alcohol%", class: "col-md-1 control-label" %>
+        <div class="col-md-11">
+          <%= f.text_field :alcohol_content, class: "form-control", placeholder: "Alcohol Content" %>
         </div>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="form-horizontal">
-          <%= f.label :color, class: "col-md-2 control-label" %>
-          <div class="col-md-10">
-            <%= f.text_field :color, class: "form-control", placeholder: "Color" %>
-          </div>
+    <div class="row">
+      <div class="form-horizontal">
+        <%= f.label :color, class: "col-md-1 control-label" %>
+        <div class="col-md-11">
+          <%= f.text_field :color, class: "form-control", placeholder: "Color" %>
         </div>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="form-horizontal">
-          <%= f.label :sparkling, class: "col-md-2 control-label" %>
-          <div class="col-md-10">
-            <%= f.check_box :sparkling, class: "form-control", placeholder: "Sparkling" %>
-          </div>
+    <div class="row">
+      <div class="form-horizontal">
+        <%= f.label :sparkling, class: "col-md-1 control-label" %>
+        <div class="col-md-11">
+          <%= f.check_box :sparkling, class: "form-control", placeholder: "Sparkling" %>
         </div>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="form-horizontal">
-          <%= f.label :bottle_size, class: "col-md-2 control-label" %>
-          <div class="col-md-10">
-            <%= f.text_field :bottle_size, class: "form-control", placeholder: "Bottle Size" %>
-          </div>
+    <div class="row">
+      <div class="form-horizontal">
+        <%= f.label :bottle_size, class: "col-md-1 control-label" %>
+        <div class="col-md-11">
+          <%= f.text_field :bottle_size, class: "form-control", placeholder: "Bottle Size" %>
         </div>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="form-horizontal">
-          <%= f.label :country, class: "col-md-2 control-label" %>
-          <div class="col-md-10">
-            <%= f.text_field :country, class: "form-control", placeholder: "Country" %>
-          </div>
+    <div class="row">
+      <div class="form-horizontal">
+        <%= f.label :country, class: "col-md-1 control-label" %>
+        <div class="col-md-11">
+          <%= f.text_field :country, class: "form-control", placeholder: "Country" %>
         </div>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="form-horizontal">
-          <%= f.label :maturity, class: "col-md-2 control-label" %>
-          <div class="col-md-10">
-            <%= f.text_field :maturity, class: "form-control", placeholder: "Maturity" %>
-          </div>
+    <div class="row">
+      <div class="form-horizontal">
+        <%= f.label :maturity, class: "col-md-1 control-label" %>
+        <div class="col-md-11">
+          <%= f.text_field :maturity, class: "form-control", placeholder: "Maturity" %>
         </div>
       </div>
+    </div>
 
-      <div class="row">
-        <div class="form-horizontal">
-          <%= f.label :drink_by, class: "col-md-2 control-label" %>
-          <div class="col-md-10">
-            <%= f.text_field :"drink_by", class: "form-control", placeholder: "Drink By" %>
-          </div>
+    <div class="row">
+      <div class="form-horizontal">
+        <%= f.label :drink_by, class: "col-md-1 control-label" %>
+        <div class="col-md-11">
+          <%= f.text_field :"drink_by", class: "form-control", placeholder: "Drink By" %>
         </div>
       </div>
+    </div>
 
-      <%= button_tag(type: 'submit', class: "btn btn-default btn-primary") do %>
-          Submit<span class="glyphicon glyphicon-glass"></span>
-      <% end %>
+    <%= button_tag(type: 'submit', class: "btn btn-default btn-primary") do %>
+        Submit<span class="glyphicon glyphicon-glass"></span>
+    <% end %>
 
-      </div>
-  <% end %>
-
-<!-- end of container --!>
+<% end %>
+<!-- end of form --!>
 
 
 
