@@ -50,7 +50,14 @@
   <div class="form-horizontal col-xs-4 text-left">TBS</div>
 </div>
 
+<hr>
+
 <h4>Bottles</h4>
+<p>
+  <%= pluralize(@wine.bottles.count, 'bottle') %>, <%= @available_bottles.count %> <%= 'available' %>
+</p>
+
+
 <div class="row">
   <div class="form-horizontal col-xs-2"><strong>Purchased From</strong></div>
   <div class="form-horizontal col-xs-2"><strong>Price</strong></div>
@@ -68,6 +75,7 @@
       <div class="form-horizontal col-xs-2"><%= bottle.consumed_date.nil? ? nil : bottle.consumed_date.strftime("%x") %></div>
     </div>
 <% end %>
+<hr>
 
 
   <h4>Add a bottle:</h4>
@@ -92,7 +100,11 @@
         </tr>
       </table>
       <p>
-        <%= f.submit %>
+        <button type="submit" class="btn btn-default btn-primary">
+          Add Bottle
+        <span class="glyphicon glyphicon-glass"></span>
+        </button>
+        <!--<%= f.submit %> -->
       </p>
   <% end %>
 

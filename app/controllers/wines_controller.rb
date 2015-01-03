@@ -15,6 +15,7 @@ class WinesController < ApplicationController
 
   def show
     @wine = Wine.find(params[:id])
+    @available_bottles = Bottle.where(wine_id: @wine.id).where(consumed_date: nil)
   end
 
   def index

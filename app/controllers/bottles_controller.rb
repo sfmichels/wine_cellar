@@ -1,7 +1,8 @@
 class BottlesController < ApplicationController
   def create
     @wine = Wine.find(params[:wine_id])
-    @bottle = @wine.bottles.create(bottle_params)
+    @bottles = @wine.bottles.create(bottle_params)
+
     redirect_to wine_path(@wine)
   end
 
