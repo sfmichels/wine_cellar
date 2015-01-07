@@ -80,33 +80,34 @@
 
   <h4>Add a bottle:</h4>
 
-  <%= form_for ([@wine, @wine.bottles.build]) do |f| %>
-      <table>
-        <thead>
-        <td align="center"><%= f.label :purchased_from, 'Purchased From' %></td>
-        <td align="center"><%= f.label :price %></td>
-        <td align="center"><%= f.label :purchased %></td>
-        <td align="center"><%= f.label :location %></td>
-        <td align="center"><%= f.label :consumed %></td>
-        </thead>
+<%= form_for ([@wine, @wine.bottles.build]) do |f| %>
+    <div class="row">
+      <div class="form-horizontal col-xs-2"><strong>Purchased From</strong></div>
+      <div class="form-horizontal col-xs-2"><strong>Price</strong></div>
+      <div class="form-horizontal col-xs-2"><strong>Purchased</strong></div>
+      <div class="form-horizontal col-xs-2"><strong>Location</strong></div>
+      <div class="form-horizontal col-xs-2"><strong>Consumed</strong></div>
+    </div>
 
-        <tr>
-          <td><%= f.text_field :purchased_from %></td>
-          <td><%= f.number_field :purchase_price, :size => "9", :maxlength => "9", :step => 0.01, :max => 99999.99,
-                                 :precision => number_with_precision(:purchase_price, :precision => 2) %></td>
-          <td><%= f.date_field :purchase_date, options = {style: "height: 26px"} %></td>
-          <td><%= f.text_field :location %></td>
-          <td><%= f.date_field :consumed_date, options = {style: "height: 26px"} %></td>
-        </tr>
-      </table>
-      <p>
-        <button type="submit" class="btn btn-default btn-primary">
-          Add Bottle
+    <div class="row">
+      <div class="form-horizontal col-xs-2"><%= f.text_field :purchased_from %></div>
+      <div class="form-horizontal col-xs-2"><%= f.number_field :purchase_price, :size => "9", :maxlength => "9",
+                                                               :step => 0.01, :max => 99999.99,
+                                                               :precision => number_with_precision(:purchase_price, :precision => 2) %>
+      </div>
+      <div class="form-horizontal col-xs-2"><%= f.date_field :purchase_date, options = {style: "height: 26px"} %></div>
+      <div class="form-horizontal col-xs-2"><%= f.text_field :location %></div>
+      <div class="form-horizontal col-xs-2"><%= f.date_field :consumed_date, options = {style: "height: 26px"} %></div>
+    </div>
+
+    <p>
+      <button type="submit" class="btn btn-default btn-primary">
+        Add Bottle
         <span class="glyphicon glyphicon-glass"></span>
-        </button>
-        <!--<%= f.submit %> -->
-      </p>
-  <% end %>
+      </button>
+      <!--<%= f.submit %> -->
+    </p>
+<% end %>
 
   <%= link_to edit_wine_path, class: 'btn btn-primary' do %>
       Edit Wine
