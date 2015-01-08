@@ -6,6 +6,13 @@ class BottlesController < ApplicationController
     redirect_to wine_path(@wine)
   end
 
+  def destroy
+    @wine = Wine.find(params[:wine_id])
+    @bottle = @wine.bottles.find(params[:id])
+    @bottle.destroy
+    redirect_to wine_path(@wine)
+  end
+
   private
     def bottle_params
       params.require(:bottle).permit(:purchased_from, :purchase_price, :purchase_date, :location, :consumed_date)
