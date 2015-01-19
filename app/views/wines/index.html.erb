@@ -1,16 +1,23 @@
 <% provide(:title, "Show All Wines") %>
 <h1 class="h4">Wines</h1>
 
+<%= search_form_for @search do |f| %>
+    <%= f.condition_fields do |c| %>
+        <%= render "condition_fields", f: c%>
+    <% end %>
+    <p><%= link_to_add_fields "Add Conditions", f, :condition %></p>
+    <div class="actions"><%= f.submit "Search" %></div>
+<% end %>
 
 <div class="table-responsive">
   <table class="table table-condensed table-striped">
     <thead>
     <tr>
-      <th>Winery</th>
-      <th>Variety</th>
-      <th>Year</th>
-      <th>Appellation</th>
-      <th>Vineyard</th>
+      <th><%= sort_link @search, :winery, "Winery" %></th>
+      <th><%= sort_link @search, :variety, "Variety" %></th>
+      <th><%= sort_link @search, :year, "Year" %></th>
+      <th><%= sort_link @search, :appellation, "Appellation" %></th>
+      <th><%= sort_link @search, :vineyard, "Vineyard" %></th>
       <th></th>
       <th></th>
       <th></th>

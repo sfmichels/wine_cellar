@@ -13,6 +13,11 @@ class BottlesController < ApplicationController
     redirect_to wine_path(@wine)
   end
 
+  def update
+    @bottle = Bottle.find(params[:id])
+    @bottle.assign_attributes(params[:bottle])
+  end
+
   private
     def bottle_params
       params.require(:bottle).permit(:purchased_from, :purchase_price, :purchase_date, :location, :consumed_date)

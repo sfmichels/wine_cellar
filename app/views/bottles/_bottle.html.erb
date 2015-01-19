@@ -5,6 +5,7 @@
   <div class="form-horizontal col-xs-2"><%= bottle.location %></div>
   <div class="form-horizontal col-xs-2"><%= date_or_nil(bottle.purchase_date) %></div>
   <div class="form-horizontal col-xs-1"><%= date_or_nil(bottle.consumed_date) %></div>
+  <div class="form-horizontal col-xs-1"><%= link_to 'Edit', [bottle.wine, bottle], method: :post %></div>
   <div class="form-horizontal col-xs-1">
     <%= link_to 'Delete', [bottle.wine, bottle], method: :delete, data: {confirm: 'Are you sure?'}, :style => "color:red" %>
   </div>

@@ -19,7 +19,17 @@ class WinesController < ApplicationController
   end
 
   def index
-    @wines = Wine.all
+    #@q = Bottle.ransack(params[:q])
+    #Bottle = @q.result.includes(:wines)
+    #@wines = Wine.all
+    @search = Wine.ransack(params[:q])
+    @wines = @search.result
+    @search.build_condition
+  end
+
+  def search # or index
+    @search = Wine.search(params[:q])
+    @wines = @search.result
   end
 
   def update
@@ -46,6 +56,8 @@ class WinesController < ApplicationController
   private
     def wine_params
       params.require(:wine).permit(:winery, :variety, :color, :year, :appellation, :vineyard, :winemaker,
-                                   :alcohol_content, :sparkling, :bottle_size, :country, :maturity, :drink_by)
+                                   :alcohol_content, :sparkling, :bottle_size, :country, :maturity, :drink_by,
+                                    bottles_attributes: [:id, :purchased_from, :purchase_price, :location,
+                                                        :purchase_date, :consumed_date, :_destroy])
     end
 end
