@@ -26,7 +26,8 @@ class BottlesController < ApplicationController
 
   def update
     @bottle = Bottle.find(params[:id])
-    @bottle.assign_attributes(params[:bottle])
+    @bottle.update_attributes(bottle_params)
+    redirect_to wine_path(@bottle.wine)
   end
 
   private
