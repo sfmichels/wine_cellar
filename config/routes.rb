@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :wines do
+  resources :wines, shallow: true do
     resources :bottles
   end
 

@@ -13,6 +13,17 @@ class BottlesController < ApplicationController
     redirect_to wine_path(@wine)
   end
 
+  def new
+    @wine = Wine.find(params[:wine_id])
+    @bottle = @wine.build
+    @path = [@wine, @bottle]
+  end
+
+  def edit
+    @bottle = Bottle.find(params[:id])
+    @path = @bottle
+  end
+
   def update
     @bottle = Bottle.find(params[:id])
     @bottle.assign_attributes(params[:bottle])

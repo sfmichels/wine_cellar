@@ -1,0 +1,8 @@
+<% provide(:title, "Edit Bottle") %>
+<h1 class="h4">Edit Bottle</h1>
+
+<%= form_for @bottle do |bottle| %>
+<%= render 'bottle' %>
+<% end %>
+
+<%= link_to 'Back', wines_path %>
