@@ -3,51 +3,51 @@
 
 <div class="row">
   <div class="form-horizontal col-xs-2 text-right"><strong>Winery</strong></div>
-  <div class="form-horizontal col-xs-4 text-left"><%= @wine.winery %></div>
-  <div class="form-horizontal col-xs-2 text-right"><strong>Winemaker</strong></div>
-  <div class="form-horizontal col-xs-4 text-left"><%= @wine.winemaker %></div>
+  <div class="form-horizontal col-xs-5 text-left"><%= @wine.winery %></div>
+  <div class="form-horizontal col-xs-2 text-right"><strong>Year</strong></div>
+  <div class="form-horizontal col-xs-3 text-left"><%= @wine.year %></div>
 </div>
 
 <div class="row">
   <div class="form-horizontal col-xs-2 text-right"><strong>Variety</strong></div>
-  <div class="form-horizontal col-xs-4 text-left"><%= @wine.variety %></div>
-  <div class="form-horizontal col-xs-2 text-right"><strong>Appellation</strong></div>
-  <div class="form-horizontal col-xs-4 text-left"><%= @wine.appellation %></div>
+  <div class="form-horizontal col-xs-5 text-left"><%= @wine.variety %></div>
+  <div class="form-horizontal col-xs-2 text-right"><strong>Maturity</strong></div>
+  <div class="form-horizontal col-xs-3 text-left"><%= @wine.maturity %></div>
 </div>
 
 <div class="row">
   <div class="form-horizontal col-xs-2 text-right"><strong>Vineyard</strong></div>
-  <div class="form-horizontal col-xs-4 text-left"><%= @wine.vineyard %></div>
-  <div class="form-horizontal col-xs-2 text-right"><strong>Year</strong></div>
-  <div class="form-horizontal col-xs-4 text-left"><%= @wine.year %></div>
+  <div class="form-horizontal col-xs-5 text-left"><%= @wine.vineyard %></div>
+  <div class="form-horizontal col-xs-2 text-right"><strong>Drink By</strong></div>
+  <div class="form-horizontal col-xs-3 text-left"><%= @wine.drink_by %></div>
+</div>
+
+<div class="row">
+  <div class="form-horizontal col-xs-2 text-right"><strong>Appellation</strong></div>
+  <div class="form-horizontal col-xs-5 text-left"><%= @wine.appellation %></div>
+  <div class="form-horizontal col-xs-2 text-right"><strong>Alcohol</strong></div>
+  <div class="form-horizontal col-xs-3 text-left"><%= @wine.alcohol_content + "%" %></div>
+</div>
+
+<div class="row">
+  <div class="form-horizontal col-xs-2 text-right"><strong>Winemaker</strong></div>
+  <div class="form-horizontal col-xs-5 text-left"><%= @wine.winemaker %></div>
+  <div class="form-horizontal col-xs-2 text-right"><strong>Bottle Size</strong></div>
+  <div class="form-horizontal col-xs-3 text-left"><%= @wine.bottle_size %></div>
 </div>
 
 <div class="row">
   <div class="form-horizontal col-xs-2 text-right"><strong>Color</strong></div>
-  <div class="form-horizontal col-xs-4 text-left"><%= @wine.color %></div>
-  <div class="form-horizontal col-xs-2 text-right"><strong>Alcohol</strong></div>
-  <div class="form-horizontal col-xs-4 text-left"><%= @wine.alcohol_content %></div>
-</div>
-
-<div class="row">
+  <div class="form-horizontal col-xs-5 text-left"><%= @wine.color %></div>
   <div class="form-horizontal col-xs-2 text-right"><strong>Sparkling</strong></div>
-  <div class="form-horizontal col-xs-4 text-left"><%= @wine.sparkling ? "Yes" : "No" %></div>
-  <div class="form-horizontal col-xs-2 text-right"><strong>Bottle Size</strong></div>
-  <div class="form-horizontal col-xs-4 text-left"><%= @wine.bottle_size %></div>
-</div>
-
-<div class="row">
-  <div class="form-horizontal col-xs-2 text-right"><strong>Maturity</strong></div>
-  <div class="form-horizontal col-xs-4 text-left"><%= @wine.maturity %></div>
-  <div class="form-horizontal col-xs-2 text-right"><strong>Drink By</strong></div>
-  <div class="form-horizontal col-xs-4 text-left"><%= @wine.drink_by %></div>
+  <div class="form-horizontal col-xs-3 text-left"><%= @wine.sparkling ? "Yes" : "No" %></div>
 </div>
 
 <div class="row">
   <div class="form-horizontal col-xs-2 text-right"><strong>Country</strong></div>
-  <div class="form-horizontal col-xs-4 text-left"><%= @wine.country %></div>
+  <div class="form-horizontal col-xs-5 text-left"><%= @wine.country %></div>
   <div class="form-horizontal col-xs-2 text-right"><strong>Dessert</strong></div>
-  <div class="form-horizontal col-xs-4 text-left"><%= @wine.dessert  ? "Yes" : "No" %></div>
+  <div class="form-horizontal col-xs-3 text-left"><%= @wine.dessert  ? "Yes" : "No" %></div>
 </div>
 
 <hr>
@@ -58,10 +58,10 @@
 
 
 <div class="row">
-  <div class="form-horizontal col-xs-2"><strong>Purchased From</strong></div>
+  <div class="form-horizontal col-xs-2"><strong>From</strong></div>
   <div class="form-horizontal col-xs-2"><strong>Price</strong></div>
   <div class="form-horizontal col-xs-2"><strong>Location</strong></div>
-  <div class="form-horizontal col-xs-2"><strong>Purchased</strong></div>
+  <div class="form-horizontal col-xs-2"><strong>Bought</strong></div>
   <div class="form-horizontal col-xs-1"><strong>Consumed</strong></div>
 </div>
 
@@ -73,10 +73,10 @@
 
 <%= form_for ([@wine, @wine.bottles.build]) do |f| %>
     <div class="row">
-      <div class="form-horizontal col-xs-2"><strong>Purchased From</strong></div>
+      <div class="form-horizontal col-xs-2"><strong>From</strong></div>
       <div class="form-horizontal col-xs-2"><strong>Price</strong></div>
       <div class="form-horizontal col-xs-2"><strong>Location</strong></div>
-      <div class="form-horizontal col-xs-2"><strong>Purchased</strong></div>
+      <div class="form-horizontal col-xs-2"><strong>Bought</strong></div>
       <div class="form-horizontal col-xs-2"><strong>Consumed</strong></div>
     </div>
 
