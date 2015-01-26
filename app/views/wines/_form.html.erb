@@ -74,15 +74,6 @@
 
     <div class="row">
       <div class="form-horizontal">
-        <%= f.label :sparkling, class: "col-md-1 control-label" %>
-        <div class="col-md-11">
-          <%= f.check_box :sparkling, class: "form-control", placeholder: "Sparkling" %>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="form-horizontal">
         <%= f.label :bottle_size, class: "col-md-1 control-label" %>
         <div class="col-md-11">
           <%= f.text_field :bottle_size, class: "form-control", placeholder: "Bottle Size" %>
@@ -116,6 +107,20 @@
         </div>
       </div>
     </div>
+
+    <div class="row">
+      <div class="form-horizontal">
+        <%= f.label :sparkling, class: "col-md-1 control-label" %>
+        <div class="col-md-1">
+          <%= f.check_box :sparkling, class: "form-control", placeholder: "Sparkling" %>
+        </div>
+        <%= f.label :dessert, class: "col-md-1 control-label" %>
+        <div class="col-md-1"/>
+        <%= f.check_box :dessert, class: "form-control", placeholder: "Desert" %>
+      </div>
+    </div>
+
+    </br>
 
     <%= button_tag(type: 'submit', class: "btn btn-default btn-primary") do %>
         Submit<span class="glyphicon glyphicon-glass"></span>

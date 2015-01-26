@@ -47,7 +47,7 @@
   <div class="form-horizontal col-xs-2 text-right"><strong>Country</strong></div>
   <div class="form-horizontal col-xs-4 text-left"><%= @wine.country %></div>
   <div class="form-horizontal col-xs-2 text-right"><strong>Dessert</strong></div>
-  <div class="form-horizontal col-xs-4 text-left">TBS</div>
+  <div class="form-horizontal col-xs-4 text-left"><%= @wine.dessert  ? "Yes" : "No" %></div>
 </div>
 
 <hr>
