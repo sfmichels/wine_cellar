@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
   resources :wines do
-    resources :bottles
+    resources :bottles, only: [:create, :destroy, :new, :edit, :update] do
+    end
   end
+  put 'bottles/:id/drink' => 'bottles#drink', as: :bottles_drink
 
   get 'welcome/index'
 

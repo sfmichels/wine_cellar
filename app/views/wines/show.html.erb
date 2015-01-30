@@ -59,13 +59,34 @@
 
 <div class="row">
   <div class="form-horizontal col-xs-2"><strong>From</strong></div>
-  <div class="form-horizontal col-xs-2"><strong>Price</strong></div>
+  <div class="form-horizontal col-xs-1"><strong>Price</strong></div>
   <div class="form-horizontal col-xs-2"><strong>Location</strong></div>
   <div class="form-horizontal col-xs-2"><strong>Bought</strong></div>
   <div class="form-horizontal col-xs-1"><strong>Consumed</strong></div>
 </div>
 
-<%= render @wine.bottles %>
+<% @wine.bottles.each do |bottle| %>
+    <div class="row">
+      <div class="form-horizontal col-xs-2"><%= bottle.purchased_from %></div>
+      <div class="form-horizontal col-xs-1"><%= number_to_currency(bottle.purchase_price, precision: 2) %></div>
+      <div class="form-horizontal col-xs-2"><%= bottle.location %></div>
+      <div class="form-horizontal col-xs-2"><%= date_or_nil(bottle.purchase_date) %></div>
+      <div class="form-horizontal col-xs-1"><%= bottle.consumed_date.nil? ? nil : bottle.consumed_date.strftime("%x") %></div>
+      <div class="form-horizontal col-xs-1"></div>
+      <div class="form-horizontal col-xs-1">
+        <%= link_to 'Edit', [:edit, bottle.wine, bottle], method: :get, :style => "color:blue" %>
+      </div>
+      <div class="form-horizontal col-xs-1">
+        <%= link_to 'Drink', bottles_drink_path(bottle), method: :put, :style => "color:blue" %>
+      </div>
+      <div class="form-horizontal col-xs-1">
+        <%= link_to 'Delete', [bottle.wine, bottle], method: :delete,
+                    data: {confirm: 'This will delete the bottle forever. "Drink"'\
+                    ' will set the consumed date and clear the location. Are you sure you want to delete?'},
+                    :style => "color:red" %>
+      </div>
+    </div>
+<% end %>
 
 <hr>
 
