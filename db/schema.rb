@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150126014214) do
+ActiveRecord::Schema.define(version: 20150213023245) do
 
   create_table "bottles", force: true do |t|
     t.string   "purchased_from"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20150126014214) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "dessert"
+    t.text     "my_notes"
+    t.text     "other_notes"
   end
 
 end

@@ -50,6 +50,13 @@
   <div class="form-horizontal col-xs-3 text-left"><%= @wine.dessert  ? "Yes" : "No" %></div>
 </div>
 
+<div class="row">
+  <div class="form-horizontal col-xs-2 text-right"><strong>My Notes</strong></div>
+  <div class="form-horizontal col-xs-5 text-left"><%= @wine.my_notes %></div>
+  <div class="form-horizontal col-xs-2 text-right"><strong>Other Notes</strong></div>
+  <div class="form-horizontal col-xs-3 text-left"><%= @wine.other_notes %></div>
+</div>
+
 <hr>
 <h4>Bottles</h4>
 <p>

@@ -103,8 +103,21 @@
       <div class="form-horizontal">
         <%= f.label :drink_by, class: "col-md-1 control-label" %>
         <div class="col-md-11">
-          <%= f.text_field :"drink_by", class: "form-control", placeholder: "Drink By" %>
+          <%= f.text_field :"drink_by", class: "form-control", placeholder: "DrinkBy" %>
         </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-horizontal">
+        <%= f.label "My Notes", class: "col-md-6 text-center" %>
+        <%= f.label "Other Notes", class: "col-md-6 text-center" %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-horizontal">
+        <%= f.text_area :my_notes, rows: 3, class: "col-md-offset-1 col-md-5" %>
+        <%= f.text_area :other_notes, rows: 3, class: "col-md-offset-1 col-md-5" %>
       </div>
     </div>
 
@@ -126,9 +139,6 @@
         Submit<span class="glyphicon glyphicon-glass"></span>
     <% end %>
 
-    <%= link_to 'Back', :back %>
+    <%= link_to 'Back', :back, class: "btn btn-default btn-primary"%>
 <% end %>
-<!-- end of form --!>
-
-
 
