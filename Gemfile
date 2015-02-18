@@ -43,8 +43,9 @@ group :development, :test do
   gem 'sqlite3'
   gem 'byebug',      '3.4.0'
   gem 'web-console'
-  gem 'spring'
 end
+
+gem "minitest-rails"
 
 group :production do
   gem 'pg'
