@@ -2,7 +2,7 @@ require 'test_helper'
 
 class WineTest < ActiveSupport::TestCase
 
-  test "should save the year if it is from 1900 to 2100" do
+  test "should save the wine if year is from 1900 to 2100" do
     wine = Wine.new
     wine.year = 1988
 
