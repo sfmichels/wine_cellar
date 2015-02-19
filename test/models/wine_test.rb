@@ -2,46 +2,92 @@ require 'test_helper'
 
 class WineTest < ActiveSupport::TestCase
 
-  test "should save the wine if year is from 1900 to 2100" do
-    wine = Wine.new
-    wine.year = 1988
-
-    assert wine.save
+  def setup
+    @wine = Wine.new
   end
 
-  test "should not save a wine if it is a string" do
-    wine = Wine.new
-    wine.year = "dog"
+  [:year, :maturity, :drink_by].each do |atr|
 
-    assert_not wine.save
+    test "should save the wine if #{atr} is from 1900 to 2100" do
+      @wine.send("#{atr}=", 1988)
+
+      assert @wine.valid?
+    end
+
+    test "should not save a wine if #{atr} is a string" do
+      @wine.send("#{atr}=", "dog")
+
+      assert_not @wine.valid?
+    end
+
+    test "should not save a wine if #{atr} is a decimal" do
+      @wine.send("#{atr}=", 2014.5)
+
+      assert_not @wine.valid?
+    end
+
+    test "should not save wine if #{atr} is less than 1900" do
+      @wine.send("#{atr}=", 1899)
+
+      assert_not @wine.valid?
+    end
+
+    test "should not save wine if #{atr} is greater than 2100" do
+      @wine.send("#{atr}=", 2101)
+
+      assert_not @wine.valid?
+    end
+
+    test "the year for #{atr} can be blank" do
+      @wine.send("#{atr}=", nil)
+
+      assert @wine.valid?
+    end
   end
 
-  test "should not save a wine if it is a decimal" do
-    wine = Wine.new
-    wine.year = 2014.5
+  test "not valid if maturity is less than than year" do
+    @wine.maturity = 2012
+    @wine.year = 2013
 
-    assert_not wine.save
+    assert_not @wine.valid?
   end
 
-  test "should not save wine if year is less than 1900" do
-    wine = Wine.new
-    wine.year = 1899
+  test "should validate wine if maturity is equal to year" do
+    @wine.maturity = 2012
+    @wine.year = 2012
 
-    assert_not wine.save
+    assert @wine.valid?
   end
 
-  test "should not save wine if year is greater than 2100" do
-    wine = Wine.new
-    wine.year = 2101
+  test "should validate wine if maturity is greater than year" do
+    @wine.maturity = 2012
+    @wine.year = 2011
 
-    assert_not wine.save
+    assert @wine.valid?
   end
 
-  test "the year can be blank" do
-    wine = Wine.new
-    wine.year = nil
+  test "not valid if drink by is less than than year" do
+    @wine.drink_by = 2012
+    @wine.year = 2013
 
-    assert wine.save
+    assert_not @wine.valid?
+  end
+
+  test "should validate wine if drink by is equal to year" do
+    @wine.drink_by = 2012
+    @wine.year = 2012
+
+    assert @wine.valid?
+  end
+
+  test "should validate wine if drink by is greater than year" do
+    @wine.drink_by = 2012
+    @wine.year = 2011
+
+    assert @wine.valid?
   end
 
 end
+
+
+
