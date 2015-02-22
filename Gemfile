@@ -45,7 +45,10 @@ group :development, :test do
   gem 'web-console'
 end
 
-gem "minitest-rails"
+group :test do
+  gem "minitest-rails-capybara"
+  gem "minitest-reporters"
+end
 
 group :production do
   gem 'pg'

@@ -10,7 +10,7 @@ module WineCellar
   class Application < Rails::Application
 
     config.generators do |g|
-      g.test_framework :minitest, spec: true
+      g.test_framework :minitest, spec: true, fixture: true
     end
 
     # Settings in config/environments/* take precedence over those specified here.

@@ -20,7 +20,7 @@ class WineTest < ActiveSupport::TestCase
       assert_not @wine.valid?
     end
 
-    test "should not save a wine if #{atr} is a decimal" do
+    test "should not save a wine if #{atr} is a fractional decimal" do
       @wine.send("#{atr}=", 2014.5)
 
       assert_not @wine.valid?
@@ -38,7 +38,7 @@ class WineTest < ActiveSupport::TestCase
       assert_not @wine.valid?
     end
 
-    test "the year for #{atr} can be blank" do
+    test " can save wine if #{atr} can be blank" do
       @wine.send("#{atr}=", nil)
 
       assert @wine.valid?
