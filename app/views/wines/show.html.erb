@@ -126,17 +126,15 @@
         Add Bottle
         <span class="glyphicon glyphicon-glass"></span>
       </button>
+      <%= link_to edit_wine_path, class: 'btn btn-primary' do %>
+          Edit Wine
+          <span class="glyphicon glyphicon-glass"></span>
+      <% end %>
+
+      <%= link_to wines_path, class: 'btn btn-primary' do %>
+          All Wines
+          <span class="glyphicon glyphicon-glass"></span>
+      <% end %>
     </p>
 <% end %>
 
-  <%= link_to edit_wine_path, class: 'btn btn-primary' do %>
-      Edit Wine
-      <span class="glyphicon glyphicon-glass"></span>
-  <% end %>
-
-  <%= link_to wines_path, class: 'btn btn-primary' do %>
-      All Wines
-      <span class="glyphicon glyphicon-glass"></span>
-  <% end %>
-
-</div>
