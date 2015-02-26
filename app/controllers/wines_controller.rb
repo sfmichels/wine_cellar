@@ -19,17 +19,16 @@ class WinesController < ApplicationController
   end
 
   def index
-    #@q = Bottle.ransack(params[:q])
-    #Bottle = @q.result.includes(:wines)
-    #@wines = Wine.all
-    @search = Wine.ransack(params[:q])
-    @wines = @search.result
-    @search.build_condition
-  end
-
-  def search # or index
     @search = Wine.search(params[:q])
     @wines = @search.result
+    @search.build_condition if @search.conditions.empty?
+    @search.build_sort if @search.sorts.empty?
+  end
+
+  def search
+    @q = Wine.search(params[:q])
+    @wines = @q.result
+    render 'index'
   end
 
   def update

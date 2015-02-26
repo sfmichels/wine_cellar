@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
   resources :wines do
-    resources :bottles, only: [:create, :destroy, :new, :edit, :update] do
-    end
+    collection { post :search, to: 'wines#index' }
+    resources :bottles, only: [:create, :destroy, :new, :edit, :update]
   end
+  root to: 'wines#index'
+
   put 'bottles/:id/drink' => 'bottles#drink', as: :bottles_drink
 
   get 'welcome/index'
@@ -12,7 +14,6 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'wines#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
