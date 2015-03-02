@@ -1,7 +1,7 @@
 <% provide(:title, "Show All Wines") %>
 <h1 class="h4">Wines</h1>
 
-<%= search_form_for @search, url: search_wines_path, method: :post do |f| %>
+<%= search_form_for @q, url: search_wines_path, method: :post do |f| %>
     <%= f.condition_fields do |c| %>
         <%= render "condition_fields", f: c %>
     <% end %>
@@ -9,45 +9,42 @@
     <div class="field">
       Sort:
       <%= f.sort_fields do |s| %>
-        <%= s.sort_select %>
+          <%= s.sort_select %>
       <% end %>
+      <%= link_to "remove", '#', class: "remove_fields" %>
     </div>
     <div class="actions"><%= f.submit "Search" %></div>
 <% end %>
 
-<div class="table-responsive">
-  <table class="table table-condensed table-striped">
-    <thead>
-    <tr>
-      <th><%= sort_link @search, :winery, "Winery" %></th>
-      <th><%= sort_link @search, :variety, "Variety" %></th>
-      <th><%= sort_link @search, :year, "Year" %></th>
-      <th><%= sort_link @search, :appellation, "Appellation" %></th>
-      <th><%= sort_link @search, :vineyard, "Vineyard" %></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @wines.each do |wine| %>
-        <tr>
-          <td><%= wine.winery %></td>
-          <td><%= wine.variety %></td>
-          <td><%= wine.year %></td>
-          <td><%= wine.appellation %></td>
-          <td><%= wine.vineyard %></td>
-          <td><%= link_to 'Show', wine_path(wine) %></td>
-          <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
-          <td>
-            <%= link_to 'Delete', wine_path(wine),
-                        method: :delete, data: {confirm: 'Are you sure?'} %>
-          </td>
-        </tr>
-    <% end %>
-    </tbody>
-  </table>
-</div>
+<!--<div class="table-responsive">-->
+<table id="wines" class="table table-condensed table-striped">
+  <tr>
+    <th><%= sort_link @q, :winery, "Winery" %></th>
+    <th><%= sort_link @q, :variety, "Variety" %></th>
+    <th><%= sort_link @q, :year, "Year" %></th>
+    <th><%= sort_link @q, :appellation, "Appellation" %></th>
+    <th><%= sort_link @q, :vineyard, "Vineyard" %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @wines.each do |wine| %>
+      <tr>
+        <td><%= wine.winery %></td>
+        <td><%= wine.variety %></td>
+        <td><%= wine.year %></td>
+        <td><%= wine.appellation %></td>
+        <td><%= wine.vineyard %></td>
+        <td><%= link_to 'Show', wine_path(wine) %></td>
+        <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
+        <td>
+          <%= link_to 'Delete', wine_path(wine),
+                      method: :delete, data: {confirm: 'Are you sure?'} %>
+        </td>
+      </tr>
+  <% end %>
+</table>
+<!--</div>-->
 
 <%= link_to new_wine_path, class: 'btn btn-primary' do %>
     New Wine

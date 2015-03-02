@@ -19,10 +19,10 @@ class WinesController < ApplicationController
   end
 
   def index
-    @search = Wine.search(params[:q])
-    @wines = @search.result
-    @search.build_condition if @search.conditions.empty?
-    @search.build_sort if @search.sorts.empty?
+    @q = Wine.search(params[:q])
+    @wines = @q.result
+    @q.build_condition if @q.conditions.empty?
+    @q.build_sort if @q.sorts.empty?
   end
 
   def search

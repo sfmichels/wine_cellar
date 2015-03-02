@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
   resources :wines do
-    collection { post :search, to: 'wines#index' }
-    resources :bottles, only: [:create, :destroy, :new, :edit, :update]
+    resources :bottles
+    collection do
+      match 'search' => 'wines#index', via: [:get, :post], as: :search
+    end
   end
   root to: 'wines#index'
 
