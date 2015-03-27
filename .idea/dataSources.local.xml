@@ -3,5 +3,6 @@
   <component name="dataSourceStorageLocal">
     <data-source name="Rails wine_cellar: development" uuid="5f7157bd-a1c7-49cd-af50-6af2ba840401" />
     <data-source name="Rails wine_cellar: production" uuid="7d8a1c58-ab1e-4909-97d8-eedada75998b" />
+    <data-source name="Rails wine_cellar: test" uuid="8bda4f62-ced6-429a-bcf7-deaaa349490f" />
   </component>
 </project>

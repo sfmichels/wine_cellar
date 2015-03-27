@@ -20,7 +20,7 @@ class WinesController < ApplicationController
 
   def index
     @q = Wine.search(params[:q])
-    @wines = @q.result
+    @wines = @q.result.page(params[:page])
     @q.build_condition if @q.conditions.empty?
     @q.build_sort if @q.sorts.empty?
   end
