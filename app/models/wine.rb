@@ -3,22 +3,22 @@ class Wine < ActiveRecord::Base
 
   paginates_per 12
 
-  validates :year, :maturity, :drink_by,
+  validates :vintage, :maturity, :drink_by,
             numericality: { only_integer: true, greater_than: 1899, less_than: 2101, allow_blank: true }
 
-  validate :maturity_cannot_be_greater_than_or_equal_to_year
+  validate :maturity_cannot_be_greater_than_or_equal_to_vintage
 
-  validate :drink_by_cannot_be_greater_than_or_equal_to_year
+  validate :drink_by_cannot_be_greater_than_or_equal_to_vintage
 
-  def maturity_cannot_be_greater_than_or_equal_to_year
-    if year.present? && maturity.present? && maturity < year
-      errors.add(:year, "can't be later than maturity")
+  def maturity_cannot_be_greater_than_or_equal_to_vintage
+    if vintage.present? && maturity.present? && maturity < vintage
+      errors.add(:vintage, "can't be later than maturity")
     end
   end
 
-  def drink_by_cannot_be_greater_than_or_equal_to_year
-    if year.present? && drink_by.present? && drink_by < year
-      errors.add(:year, "can't be later than drink_by")
+  def drink_by_cannot_be_greater_than_or_equal_to_vintage
+    if vintage.present? && drink_by.present? && drink_by < vintage
+      errors.add(:vintage, "can't be later than drink_by")
     end
   end
 

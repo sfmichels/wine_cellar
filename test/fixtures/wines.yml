@@ -3,7 +3,7 @@
 one:
   winery: MyString
   variety: MyString
-  year: 1
+  vintage: 1
   appellation: MyString
   vineyard: MyString
   winemaker: MyString
@@ -18,7 +18,7 @@ one:
 two:
   winery: MyString
   variety: MyString
-  year: 1
+  vintage: 1
   appellation: MyString
   vineyard: MyString
   winemaker: MyString

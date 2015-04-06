@@ -6,7 +6,7 @@ class WineTest < ActiveSupport::TestCase
     @wine = Wine.new
   end
 
-  [:year, :maturity, :drink_by].each do |atr|
+  [:vintage, :maturity, :drink_by].each do |atr|
 
     test "should save the wine if #{atr} is from 1900 to 2100" do
       @wine.send("#{atr}=", 1988)
@@ -45,44 +45,44 @@ class WineTest < ActiveSupport::TestCase
     end
   end
 
-  test "not valid if maturity is less than than year" do
+  test "not valid if maturity is less than than vintage" do
     @wine.maturity = 2012
-    @wine.year = 2013
+    @wine.vintage = 2013
 
     assert_not @wine.valid?
   end
 
-  test "should validate wine if maturity is equal to year" do
+  test "should validate wine if maturity is equal to vintage" do
     @wine.maturity = 2012
-    @wine.year = 2012
+    @wine.vintage = 2012
 
     assert @wine.valid?
   end
 
-  test "should validate wine if maturity is greater than year" do
+  test "should validate wine if maturity is greater than vintage" do
     @wine.maturity = 2012
-    @wine.year = 2011
+    @wine.vintage = 2011
 
     assert @wine.valid?
   end
 
-  test "not valid if drink by is less than than year" do
+  test "not valid if drink by is less than than vintage" do
     @wine.drink_by = 2012
-    @wine.year = 2013
+    @wine.vintage = 2013
 
     assert_not @wine.valid?
   end
 
-  test "should validate wine if drink by is equal to year" do
+  test "should validate wine if drink by is equal to vintage" do
     @wine.drink_by = 2012
-    @wine.year = 2012
+    @wine.vintage = 2012
 
     assert @wine.valid?
   end
 
-  test "should validate wine if drink by is greater than year" do
+  test "should validate wine if drink by is greater than vintage" do
     @wine.drink_by = 2012
-    @wine.year = 2011
+    @wine.vintage = 2011
 
     assert @wine.valid?
   end

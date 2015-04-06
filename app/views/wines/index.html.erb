@@ -22,7 +22,7 @@
   <tr>
     <th><%= sort_link @q, :winery, "Winery" %></th>
     <th><%= sort_link @q, :variety, "Variety" %></th>
-    <th><%= sort_link @q, :year, "Year" %></th>
+    <th><%= sort_link @q, :vintage, "Vintage" %></th>
     <th><%= sort_link @q, :appellation, "Appellation" %></th>
     <th><%= sort_link @q, :vineyard, "Vineyard" %></th>
     <th></th>
@@ -34,7 +34,7 @@
       <tr>
         <td><%= wine.winery %></td>
         <td><%= wine.variety %></td>
-        <td><%= wine.year %></td>
+        <td><%= wine.vintage %></td>
         <td><%= wine.appellation %></td>
         <td><%= wine.vineyard %></td>
         <td><%= link_to 'Show', wine_path(wine) %></td>
