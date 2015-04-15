@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150406213700) do
+ActiveRecord::Schema.define(version: 20150415024740) do
 
   create_table "bottles", force: true do |t|
     t.string   "purchased_from"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20150406213700) do
     t.text     "my_notes"
     t.text     "other_notes"
     t.boolean  "non_vintage"
+    t.string   "vintage_displayer"
   end
 
 end
