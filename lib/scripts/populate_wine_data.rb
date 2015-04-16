@@ -3,6 +3,7 @@ require 'rubygems'
 require 'json'
 require 'date'
 
+
 # Read jason data
 json = File.read('lib/scripts/wine_test_data.json')
 
@@ -12,7 +13,7 @@ json.gsub!(/\v/, '\n')
 # Maturity should only have one year
 # Some records looked like:  "maturity":"2008-2020 "
 # Remove the hyphen, the second year and the space after the second date.
-json.gsub!(/("maturity":")(\d{4})(\-[\d]{4} ")/, '\1\2"')
+json.gsub! /(\"maturity\": )(\"\d{4})(-\d{4} )(\")/, '\1\2\4'
 
 wine_hashes = JSON.parse(json)
 
