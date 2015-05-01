@@ -6,7 +6,7 @@ class WinesController < ApplicationController
   def create
     @wine = Wine.new(wine_params)
 
-    if @wine.save!
+    if @wine.save
       redirect_to @wine
     else
       render 'new'
