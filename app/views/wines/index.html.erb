@@ -41,7 +41,7 @@
         <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
         <td>
           <%= link_to 'Delete', wine_path(wine),
-                      method: :delete, data: {confirm: 'Are you sure?'} %>
+                      method: :delete, data: {confirm: 'Delete this wine and its bottles?'} %>
         </td>
       </tr>
   <% end %>
