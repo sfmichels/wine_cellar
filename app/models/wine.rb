@@ -14,8 +14,6 @@ class Wine < ActiveRecord::Base
 
   validate :drink_by_cannot_be_greater_than_or_equal_to_vintage
 
-  #validate :set_vintage_nonvintage
-
   def maturity_cannot_be_greater_than_or_equal_to_vintage
     if vintage.present? && maturity.present? && maturity < vintage
       errors.add(:vintage, "can't be later than maturity")
