@@ -5,26 +5,31 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
+  encoding: unicode
   pool: 5
   timeout: 5000
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: wine_cellar_dev
+  username: alan
+  password:
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: db/test.sqlite3
+  database: wine_cellar_test
+  username: alan
+  password:
 
 production:
-  adapter: postgresql
-  database: my_database_production
-  pool: 5
-  timeout: 5000
-#  <<: *default
-#  database: db/production.sqlite3
+  <<: *default
+  database: wine_cellar_prod
+
+staging:
+  <<: *default
+  database: wine_cellar_stage
 

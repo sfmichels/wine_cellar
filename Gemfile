@@ -41,8 +41,9 @@ gem 'kaminari'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'pg'
+
 group :development, :test do
-  gem 'sqlite3'
   gem 'byebug',      '3.4.0'
   gem 'web-console'
 end
@@ -53,7 +54,9 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
-  #gem 'rails_12factor', '0.0.2'
+end
+
+group :staging do
+  gem 'rails_12factor'
 end
