@@ -6,7 +6,7 @@ require 'wine'
 
 # Read jason data
 def populate_from_json_file
-  json = File.read('lib/scripts/wine_test_data.json')
+  json = File.read('lib/scripts/wine_data.json')
   populate_wine_data json
 end
 
@@ -72,8 +72,8 @@ def populate_wine_data json
     wine.inspect
 
     # set value using month/day/year format coming in from json
-    h['consumed_date'] = Date.strptime(h['consumed_date'], "%m/%d/%Y") if h['consumed_date'].to_s != ''
-    h['purchase_date'] = Date.strptime(h['purchase_date'], "%m/%d/%Y") if h['purchase_date'].to_s != ''
+    h['consumed_date'] = Date.strptime(h['consumed_date'], "%m/%d/%Y") if !h['consumed_date'].to_s.empty?
+    h['purchase_date'] = Date.strptime(h['purchase_date'], "%m/%d/%Y") if !h['purchase_date'].to_s.empty?
 
     # add bottle
     puts "Add a bottle"
