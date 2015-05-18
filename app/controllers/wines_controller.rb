@@ -26,6 +26,13 @@ class WinesController < ApplicationController
   end
 
   def search
+    # work around for is present until ransack add more positive and negative tests
+    params[:q][:location_present] = "1" if
+        params[:q][:location_blank].nil? ||
+            params[:q][:location_blank] == "0"
+    params[:q][:consumed_date_present] = "1" if
+        params[:q][:consumed_date].nil?
+
     @q = Wine.search(params[:q])
     @wines = @q.result
     render 'index'
