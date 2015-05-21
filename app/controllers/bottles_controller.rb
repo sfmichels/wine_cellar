@@ -33,7 +33,7 @@ class BottlesController < ApplicationController
   def drink
     @bottle = Bottle.find(params[:id])
     @bottle.location = ""
-    @bottle.consumed_date = Date.today
+    @bottle.consumed_date = Time.zone.today
     @bottle.save
     redirect_to wine_path(@bottle.wine)
   end
