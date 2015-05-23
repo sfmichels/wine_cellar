@@ -19,5 +19,47 @@
 
 body {
   padding-top: 60px;
-  background-color: Pink;
+  background-color: #7f1a1a;
+  color: white;
+}
+
+a, sort_link {
+  color: white;
+}
+
+td, a {
+  color: white;
+}
+
+actions {
+  color: green;
+}
+
+my-notes, other-notes {
+  bg: pink;
+}
+
+link_to, edit-bottle {
+  color: green;
+}
+
+nav, navbar-nav, navbar-left {
+  XXXcolor: white;
+}
+
+wines.th {
+  XXXcolor: white;
+}
+
+table, th, td {
+  XXXborder: 1px solid white;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #777;
 }

@@ -56,8 +56,8 @@
 </div>
 
 <div class="row">
-  <div class="form-horizontal col-xs-6 text-left"><%= simple_format(@wine.my_notes) %></div>
-  <div class="form-horizontal col-xs-6 text-left"><%= simple_format(@wine.other_notes) %></div>
+  <div class="form-horizontal col-xs-6 text-left my-notes"><%= simple_format(@wine.my_notes) %></div>
+  <div class="form-horizontal col-xs-6 text-left other-notes"><%= simple_format(@wine.other_notes) %></div>
 </div>
 
 <hr>
@@ -83,17 +83,17 @@
       <div class="form-horizontal col-xs-2"><%= date_or_nil(bottle.purchase_date) %></div>
       <div class="form-horizontal col-xs-1"><%= bottle.consumed_date.nil? ? nil : bottle.consumed_date.strftime("%m/%d/%Y") %></div>
       <div class="form-horizontal col-xs-1"></div>
-      <div class="form-horizontal col-xs-1">
-        <%= link_to 'Edit', [:edit, bottle.wine, bottle], method: :get, :style => "color:blue" %>
+      <div class="form-horizontal col-xs-1 edit-bottle">
+        <%= link_to 'Edit', [:edit, bottle.wine, bottle], method: :get %>
       </div>
       <div class="form-horizontal col-xs-1">
-        <%= link_to 'Drink', bottles_drink_path(bottle), method: :put, :style => "color:blue" %>
+        <%= link_to 'Drink', bottles_drink_path(bottle), method: :put, :style => "color:white" %>
       </div>
       <div class="form-horizontal col-xs-1">
         <%= link_to 'Delete', [bottle.wine, bottle], method: :delete,
                     data: {confirm: 'This will delete the bottle forever. "Drink"'\
                     ' will set the consumed date and clear the location. Are you sure you want to delete?'},
-                    :style => "color:red" %>
+                    :style => "color:white" %>
       </div>
     </div>
 <% end %>
@@ -125,9 +125,9 @@
     </div>
 
     <p>
-      <button type="submit" class="btn btn-default btn-primary">
+      <button type="submit" class="btn btn-default btn-primary, :style => "color:white">
         Add Bottle
-        <span class="glyphicon glyphicon-glass"></span>
+        <span class="glyphicon glyphicon-glass""></span>
       </button>
       <%= link_to edit_wine_path, class: 'btn btn-primary' do %>
           Edit Wine
