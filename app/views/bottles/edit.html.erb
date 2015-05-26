@@ -11,32 +11,32 @@
     </div>
 
     <div class="row">
-      <div class="form-horizontal col-xs-2"><%= f.text_field :purchased_from %></div>
+      <div class="form-horizontal col-xs-2"><%= f.text_field :purchased_from, :style => "color:black" %></div>
       <div class="form-horizontal col-xs-2"><%= f.number_field :purchase_price, :size => "9", :maxlength => "9",
-                                                               :step => 0.01, :max => 99999.99,
+                                                               :step => 0.01, :max => 99999.99, :style => "color:black",
                                                                :precision => number_with_precision(:purchase_price, :precision => 2) %>
       </div>
 
-      <div class="form-horizontal col-xs-2"><%= f.text_field :location %></div>
-      <div class="form-horizontal col-xs-2"><%= f.date_field :purchase_date, options = {style: "height: 26px"} %></div>
-      <div class="form-horizontal col-xs-2"><%= f.date_field :consumed_date, options = {style: "height: 26px"} %></div>
+      <div class="form-horizontal col-xs-2"><%= f.text_field :location, :style => "color:black" %></div>
+      <div class="form-horizontal col-xs-2"><%= f.date_field :purchase_date, options = {style: "height:26px; color:black"} %></div>
+      <div class="form-horizontal col-xs-2"><%= f.date_field :consumed_date, options = {style: "height:26px; color:black"} %></div>
       <br>
       <br>
     </div>
 
 
-    <button type="submit" class="btn btn-default btn-primary">
+    <button type="submit" class="btn btn-default btn-primary, style = black">
       Update Bottle
       <span class="glyphicon glyphicon-glass"></span>
     </button>
 
 
-    <%= link_to :back, class: 'btn btn-primary' do %>
+    <%= link_to :back, class: "btn btn-default btn-primary, style = black" do %>
         Back
         <span class="glyphicon glyphicon-glass"></span>
     <% end %>
 
-    <%= link_to wines_path, class: 'btn btn-primary' do %>
+    <%= link_to wines_path, class: "btn btn-default btn-primary, style = black" do %>
         All Wines
         <span class="glyphicon glyphicon-glass"></span>
     <% end %>

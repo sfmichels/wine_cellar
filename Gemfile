@@ -60,3 +60,5 @@ end
 group :staging do
   gem 'rails_12factor'
 end
+
+gem 'method_source'

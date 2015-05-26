@@ -1,7 +1,7 @@
 <% provide(:title, "Show All Wines") %>
 <h1 class="h4">Wines</h1>
 
-<%= search_form_for @q, url: search_wines_path, method: :post do |f| %>
+<%= search_form_for @q, url: search_wines_path, html: { method: :post } do |f| %>
     <%= f.condition_fields do |c| %>
         <%= render "condition_fields", f: c %>
     <% end %>
@@ -20,7 +20,7 @@
 <!--<div class="table-responsive">-->
 <table id="wines" class="table table-condensed">
   <tr>
-    <th><%= sort_link @q, :winery, "Winery", :style => "color:white" %></th>
+    <th><%= sort_link @q, :winery, "Winery" %></th>
     <th><%= sort_link @q, :variety, "Variety" %></th>
     <th><%= sort_link @q, :vintage, "Vintage" %></th>
     <th><%= sort_link @q, :appellation, "Appellation" %></th>
@@ -40,7 +40,7 @@
         <td><%= link_to 'Show', wine_path(wine) %></td>
         <td><%= link_to 'Edit', edit_wine_path(wine) %></td>
         <td>
-          <%= link_to 'Delete', wine_path(wine), :style => "color:white",
+          <%= link_to 'Delete', wine_path(wine), :style => "color:yellow",
                       method: :delete, data: {confirm: 'Delete this wine and its bottles?'} %>
         </td>
       </tr>
@@ -48,7 +48,7 @@
 </table>
 <!--</div>-->
 
-<%= link_to new_wine_path, class: 'btn btn-primary' do %>
+<%= link_to new_wine_path, class: "btn btn-default btn-primary, foreground = black" do %>
     New Wine
     <span class="glyphicon glyphicon-glass"></span>
 <% end %>
