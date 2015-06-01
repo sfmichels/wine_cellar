@@ -17,6 +17,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+select {
+  color: black;
+}
+
+value {
+  color: black;
+}
+
 body {
   padding-top: 60px;
   background-color: #7f1a1a;
