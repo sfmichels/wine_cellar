@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150415024740) do
+ActiveRecord::Schema.define(version: 20150604204954) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "bottles", force: true do |t|
     t.string   "purchased_from"
@@ -24,7 +27,35 @@ ActiveRecord::Schema.define(version: 20150415024740) do
     t.datetime "updated_at"
   end
 
-  add_index "bottles", ["wine_id"], name: "index_bottles_on_wine_id"
+  add_index "bottles", ["wine_id"], name: "index_bottles_on_wine_id", using: :btree
+
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "vs_database_diagrams", id: false, force: true do |t|
+    t.string   "name",     limit: 80
+    t.text     "diadata"
+    t.string   "comment",  limit: 1022
+    t.text     "preview"
+    t.string   "lockinfo", limit: 80
+    t.datetime "locktime"
+    t.string   "version",  limit: 80
+  end
 
   create_table "wines", force: true do |t|
     t.string   "winery"
