@@ -1,5 +1,6 @@
 class Wine < ActiveRecord::Base
   has_many :bottles, :dependent => :destroy
+  belongs_to :user
 
   paginates_per 12
 
@@ -43,7 +44,7 @@ class Wine < ActiveRecord::Base
       else
         errors.add(:vintage, "can't be before 1900 or after 2100")
       end
-    elsif self.vintage_displayer.nil?
+    elsif self.vintage_displayer.nil? || self.vintage_displayer = ""
       self.non_vintage = nil
       self.vintage = nil
     elsif ["NV", "NON VINTAGE", "NON-VINTAGE"].include? self.vintage_displayer.upcase

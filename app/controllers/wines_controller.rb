@@ -5,6 +5,7 @@ class WinesController < ApplicationController
 
   def create
     @wine = Wine.new(wine_params)
+    @wine.user_id = current_user.id
 
     if @wine.save
       redirect_to @wine
@@ -63,7 +64,7 @@ class WinesController < ApplicationController
     def wine_params
       params.require(:wine).permit(:winery, :variety, :color, :vintage, :appellation, :vineyard, :winemaker,
                                    :alcohol_content, :sparkling, :bottle_size, :country, :maturity, :drink_by,
-                                   :dessert, :my_notes, :other_notes, :non_vintage, :vintage_displayer,
+                                   :dessert, :my_notes, :other_notes, :non_vintage, :vintage_displayer, :user_id,
                                     bottles_attributes: [:id, :purchased_from, :purchase_price, :location,
                                                         :purchase_date, :consumed_date, :_destroy])
     end

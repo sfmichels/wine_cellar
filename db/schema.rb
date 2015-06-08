@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150604204954) do
+ActiveRecord::Schema.define(version: 20150605225520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,9 @@ ActiveRecord::Schema.define(version: 20150604204954) do
     t.text     "other_notes"
     t.boolean  "non_vintage"
     t.string   "vintage_displayer"
+    t.integer  "user_id"
   end
+
+  add_index "wines", ["user_id"], name: "index_wines_on_user_id", using: :btree
 
 end
