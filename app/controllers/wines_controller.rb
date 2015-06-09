@@ -43,7 +43,7 @@ class WinesController < ApplicationController
   end
 
   def update
-    @wine = Wine.find(params[:id])
+    @wine = current_user.wines.find(params[:id])
 
     if @wine.update(wine_params)
       redirect_to @wine
@@ -53,7 +53,7 @@ class WinesController < ApplicationController
   end
 
   def edit
-    @wine = Wine.find(params[:id])
+    @wine = current_user.wines.find(params[:id])
   end
 
   def destroy
