@@ -1,4 +1,7 @@
 class WinesController < ApplicationController
+
+  before_filter :authenticate_user!
+
   def new
     @wine = Wine.new
   end
@@ -15,13 +18,13 @@ class WinesController < ApplicationController
   end
 
   def show
-    @wine = Wine.find(params[:id])
+    @wine = current_user.wines.find(params[:id])
     @available_bottles = Bottle.where(wine_id: @wine.id).where(consumed_date: nil)
   end
 
   def index
     @q = Wine.search(params[:q])
-    @wines = @q.result.page(params[:page])
+    @wines = @q.result.page(params[:page]).where(user_id: current_user.id)
     @q.build_condition if @q.conditions.empty?
     @q.build_sort if @q.sorts.empty?
   end

@@ -1,4 +1,8 @@
 class BottlesController < ApplicationController
+
+  helper :wines
+  before_filter :authenticate_user!
+
   def create
     @wine = Wine.find(params[:wine_id])
     @bottles = @wine.bottles.create(bottle_params)
