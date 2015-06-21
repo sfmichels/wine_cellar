@@ -35,27 +35,25 @@ class Wine < ActiveRecord::Base
   def set_vintage_nonvintage
     self.vintage = nil
     self.non_vintage = nil
-    vintage = Integer(self.vintage_displayer) rescue nil
-    if !vintage.nil?
-      if vintage > 1899 && vintage < 2101
-        self.non_vintage = false
-        self.vintage = vintage
-        self.vintage_displayer = vintage.to_s
-      else
-        errors.add(:vintage, "can't be before 1900 or after 2100")
-      end
-    elsif self.vintage_displayer.nil? || self.vintage_displayer = ""
+    if self.vintage_displayer.nil? || self.vintage_displayer == ""
       self.non_vintage = nil
       self.vintage = nil
-    elsif ["NV", "NON VINTAGE", "NON-VINTAGE"].include? self.vintage_displayer.upcase
+    elsif self.vintage_displayer.is_a? String and ["NV", "NON VINTAGE", "NON-VINTAGE"].include? self.vintage_displayer.upcase
       self.non_vintage = true
       self.vintage_displayer = "NV"
     else
-      errors.add(:vintage, "illegal value for vintage")
+      vintage = Integer(self.vintage_displayer) rescue nil
+      if !vintage.nil?
+        if vintage > 1899 && vintage < 2101
+          self.non_vintage = false
+          self.vintage = vintage
+          self.vintage_displayer = vintage.to_s
+        else
+          errors.add(:vintage, "can't be before 1900 or after 2100")
+        end
+      else
+        errors.add(:vintage, "illegal value for vintage")
+      end
     end
   end
-
 end
-
-
-
