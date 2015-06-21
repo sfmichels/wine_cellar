@@ -19,6 +19,7 @@ class WinesController < ApplicationController
 
   def show
     @wine = current_user.wines.find(params[:id])
+    @wine.vintage_displayer = @wine.set_vintage_nonvintage
     @available_bottles = Bottle.where(wine_id: @wine.id).where(consumed_date: nil)
   end
 
